@@ -1,9 +1,9 @@
-const lottery = (num: number) => {
+const lottery = (num: number): Promise<string> => {
   const random = Math.floor(Math.random() * 1000) + 1;
   console.log("Undian Lotre dimulai......... 🤑");
   console.log(`Sedang Mengundi nomor anda....... 🎲 \n`);
 
-  const promise = new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     if (random === num) {
       setTimeout(() => {
         resolve("Selamat anda mendapatkan hadiah utama berupa mobil 🚓 😍");
@@ -14,7 +14,6 @@ const lottery = (num: number) => {
       }, 10000);
     }
   });
-  return promise;
 };
 
 lottery(5)

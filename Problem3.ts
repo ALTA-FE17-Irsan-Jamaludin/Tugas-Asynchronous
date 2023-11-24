@@ -1,7 +1,8 @@
-const jajanBoba = (uang: number, callback: any) => {
+type callbackFunc = (uang: number) => void;
+const jajanBoba = (uang: number, callback: callbackFunc) => {
   let Boba: number = 5000;
   const promiseBoba = new Promise((resolve, reject) => {
-    if (uang > Boba) {
+    if (uang >= Boba) {
       setTimeout(() => {
         uang = uang - Boba;
         resolve(`Kamu Jajan Boba harga : ${Boba} \nSisa uang kamu adalah : ${uang} \n`);
@@ -22,7 +23,7 @@ const jajanBoba = (uang: number, callback: any) => {
 const jajanSeblak = (uang: number) => {
   let Seblak: number = 8000;
   const promiseSeblak = new Promise((resolve, reject) => {
-    if (uang > Seblak) {
+    if (uang >= Seblak) {
       setTimeout(() => {
         resolve(`Kamu Jajan Seblak harga: ${Seblak} \nSisa uang kamu adalah : ${uang - Seblak} \n`);
       }, 9000);
